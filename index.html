@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>이음온아이 통합케어 플랫폼 제작 제안 · 어니스트패밀리</title>
+<meta name="description" content="반려동물을 떠나보낸 마음을 위한 이음온아이 통합케어 플랫폼 — 기획·디자인·개발·오픈까지 제작비 0원으로 함께하는 제안서." />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<style>
+  :root{
+    --ink:#262732; --ink-soft:#5c5e6c; --ink-faint:#8b8d9a;
+    --cream:#faf6f0; --card:#ffffff; --line:#ece4d7;
+    --night-1:#15172e; --night-2:#242a55; --night-3:#39407a;
+    --gold:#e4b268; --gold-soft:#f3dcb0; --rose:#d08f8f; --sky:#9fb2e0;
+    --radius:18px; --shadow:0 10px 34px rgba(30,28,45,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,system-ui,'Segoe UI',sans-serif;
+    line-height:1.72; letter-spacing:-.01em; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px; margin:0 auto; padding:0 24px}
+  h1,h2,h3{letter-spacing:-.02em; line-height:1.3; margin:0}
+  p{margin:0 0 1em}
+  a{color:inherit}
+
+  /* HERO */
+  .hero{
+    position:relative; overflow:hidden; color:#f3f1ff;
+    background:
+      radial-gradient(1200px 500px at 78% -10%, rgba(228,178,104,.22), transparent 60%),
+      radial-gradient(900px 600px at 8% 110%, rgba(159,178,224,.20), transparent 55%),
+      linear-gradient(160deg, var(--night-1), var(--night-2) 60%, var(--night-3));
+  }
+  .stars{position:absolute; inset:0; pointer-events:none; opacity:.9;
+    background-image:
+      radial-gradient(1.6px 1.6px at 12% 22%, #fff, transparent),
+      radial-gradient(1.4px 1.4px at 28% 64%, #ffe9c7, transparent),
+      radial-gradient(1.2px 1.2px at 46% 32%, #fff, transparent),
+      radial-gradient(1.8px 1.8px at 66% 18%, #fff, transparent),
+      radial-gradient(1.3px 1.3px at 82% 54%, #dfe7ff, transparent),
+      radial-gradient(1.5px 1.5px at 90% 28%, #fff, transparent),
+      radial-gradient(1.2px 1.2px at 58% 74%, #ffe9c7, transparent),
+      radial-gradient(1.1px 1.1px at 36% 84%, #fff, transparent);
+  }
+  .hero .wrap{position:relative; padding:76px 24px 70px}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600;
+    letter-spacing:.06em; color:var(--gold-soft);
+    border:1px solid rgba(243,220,176,.35); border-radius:999px; padding:7px 14px; margin-bottom:26px}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .hero h1{font-size:clamp(30px,6vw,48px); font-weight:800; margin:0 0 18px}
+  .hero .lead{font-size:clamp(16px,2.4vw,19px); color:#d9dcf0; max-width:620px; margin:0 0 30px}
+  .hero .lead b{color:#fff}
+  .hero-free{
+    display:inline-flex; flex-direction:column; gap:3px; padding:18px 24px; border-radius:16px;
+    background:linear-gradient(120deg, rgba(228,178,104,.16), rgba(228,178,104,.06));
+    border:1px solid rgba(228,178,104,.4);
+  }
+  .hero-free .k{font-size:13px; color:var(--gold-soft); letter-spacing:.02em}
+  .hero-free .v{font-size:clamp(20px,3.4vw,26px); font-weight:800; color:#fff}
+  .hero-free .v em{font-style:normal; color:var(--gold)}
+  .hero-meta{margin-top:34px; font-size:14px; color:#aeb2cf; display:flex; flex-wrap:wrap; gap:6px 22px}
+  .hero-meta b{color:#e7e9f7; font-weight:600}
+
+  /* SECTIONS */
+  section{padding:62px 0}
+  section + section{border-top:1px solid var(--line)}
+  .kicker{font-size:13px; font-weight:700; letter-spacing:.12em; color:var(--gold);
+    text-transform:uppercase; margin-bottom:14px}
+  .kicker.rose{color:#c57a7a}
+  h2.title{font-size:clamp(23px,3.6vw,31px); font-weight:800; margin-bottom:12px}
+  .sub{color:var(--ink-soft); font-size:16.5px; max-width:680px; margin-bottom:34px}
+  .sub.tight{margin-bottom:22px}
+
+  /* understanding list */
+  .read-list{display:grid; gap:14px; margin:0 0 30px; padding:0; list-style:none}
+  .read-list li{background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:18px 20px; box-shadow:var(--shadow)}
+  .read-list .h{font-weight:700; margin-bottom:4px; display:flex; align-items:center; gap:9px}
+  .read-list .h .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+    background:#f3ecdf; font-size:15px; flex:none}
+  .read-list .d{color:var(--ink-soft); font-size:15px}
+
+  .factbar{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:8px}
+  .fact{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px; text-align:center}
+  .fact .n{font-size:24px; font-weight:800; color:var(--night-2)}
+  .fact .l{font-size:12.5px; color:var(--ink-faint); margin-top:3px}
+
+  /* diff cards */
+  .cards{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:24px 22px; box-shadow:var(--shadow); position:relative}
+  .card .num{font-size:12px; font-weight:800; color:var(--gold); letter-spacing:.08em}
+  .card h3{font-size:18px; font-weight:800; margin:8px 0 8px}
+  .card p{color:var(--ink-soft); font-size:14.5px; margin:0}
+  .card.highlight{background:linear-gradient(145deg,#fff,#fff7ea); border-color:#f0d9ac}
+  .card.warm{background:linear-gradient(145deg,#fff,#fbf0f0); border-color:#f0d2d2}
+
+  /* scope steps */
+  .steps{display:grid; gap:12px; margin-bottom:30px}
+  .step{display:flex; gap:16px; background:#fff; border:1px solid var(--line);
+    border-radius:14px; padding:18px 20px}
+  .step .idx{flex:none; width:34px;height:34px;border-radius:10px; background:var(--night-2);
+    color:#fff; font-weight:800; display:grid; place-items:center; font-size:15px}
+  .step .b{font-weight:700; margin-bottom:2px}
+  .step .t{color:var(--ink-soft); font-size:14.5px}
+
+  .screens{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  .screens .box{background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden}
+  .screens .box h4{font-size:14.5px; font-weight:800; padding:14px 18px; margin:0;
+    background:#f6efe3; border-bottom:1px solid var(--line); display:flex; justify-content:space-between}
+  .screens .box h4 span{color:var(--gold); font-weight:800}
+  .screens ol{margin:0; padding:14px 18px 16px 34px; color:var(--ink-soft); font-size:13.6px; line-height:1.95}
+  .screens ol li::marker{color:var(--ink-faint)}
+
+  /* timeline */
+  .tl{position:relative; margin:0; padding:0; list-style:none}
+  .tl::before{content:""; position:absolute; left:15px; top:6px; bottom:6px; width:2px; background:var(--line)}
+  .tl li{position:relative; padding:0 0 22px 48px}
+  .tl li:last-child{padding-bottom:0}
+  .tl .dot{position:absolute; left:6px; top:2px; width:20px;height:20px;border-radius:50%;
+    background:#fff; border:3px solid var(--gold)}
+  .tl li.open .dot{background:var(--gold)}
+  .tl .w{font-size:12.5px; font-weight:800; color:var(--gold); letter-spacing:.04em}
+  .tl .h{font-weight:700; margin:1px 0 3px}
+  .tl .d{color:var(--ink-soft); font-size:14.5px}
+
+  /* cost */
+  table{width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line);
+    border-radius:14px; overflow:hidden; font-size:14.5px}
+  th,td{padding:15px 16px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+  th{background:#f6efe3; font-weight:700; font-size:13.5px}
+  tr:last-child td{border-bottom:none}
+  .cost-hi td{background:linear-gradient(90deg,#fff8ec,#fffdf8); font-weight:700}
+  .cost-hi .big{font-size:18px; color:var(--night-2); font-weight:800}
+  .zero{color:#b07c1f; font-weight:800}
+  .note{font-size:13.5px; color:var(--ink-faint); margin-top:14px}
+
+  /* roadmap */
+  .road{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:4px}
+  .road .r{display:flex; gap:12px; align-items:flex-start; background:#fff; border:1px solid var(--line);
+    border-radius:12px; padding:14px 16px}
+  .road .r .x{flex:none; font-weight:800; color:#c57a7a; font-size:13px; margin-top:1px}
+  .road .r b{font-weight:700}
+  .road .r span{color:var(--ink-soft); font-size:14px}
+
+  /* promise */
+  .promise{display:grid; gap:10px; margin:0; padding:0; list-style:none}
+  .promise li{display:flex; gap:12px; align-items:flex-start; font-size:15.5px}
+  .promise .c{flex:none; width:24px;height:24px;border-radius:50%; background:#eef3ec; color:#4e8a52;
+    display:grid; place-items:center; font-weight:800; font-size:13px; margin-top:2px}
+
+  /* closing */
+  .closing{background:
+      radial-gradient(800px 360px at 80% -20%, rgba(228,178,104,.18), transparent 60%),
+      linear-gradient(160deg,var(--night-1),var(--night-2)); color:#f1f0ff; border-radius:24px;
+    padding:46px 36px; margin:10px 0 0; text-align:center}
+  .closing h2{font-size:clamp(22px,3.6vw,28px); font-weight:800; margin-bottom:14px}
+  .closing p{color:#d6d9f0; max-width:560px; margin:0 auto 10px; font-size:16px}
+  .closing .cta{display:inline-block; margin-top:22px; background:var(--gold); color:#2a2208;
+    font-weight:800; padding:14px 26px; border-radius:999px; text-decoration:none}
+  .closing .hodu{margin-top:22px; font-size:14px; color:#bfc3e0}
+
+  footer{padding:34px 0 60px; text-align:center; color:var(--ink-faint); font-size:13px}
+  footer .b{color:var(--ink-soft); font-weight:600}
+
+  @media (max-width:680px){
+    .cards,.screens,.road,.factbar{grid-template-columns:1fr}
+    .factbar{grid-template-columns:1fr 1fr}
+    section{padding:48px 0}
+    .closing{padding:38px 22px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="stars"></div>
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> 이음온아이 · 통합케어 플랫폼 제작 제안</span>
+    <h1>별들 사이에, 길을 잇다</h1>
+    <p class="lead">반려동물을 떠나보낸 마음이 다시 걸음을 옮길 수 있도록.<br>
+      기획부터 디자인·개발·오픈까지, <b>이음온아이의 처음을 함께 만들겠습니다.</b></p>
+    <div class="hero-free">
+      <span class="k">제작비 (기획 · 디자인 · 개발 · 오픈)</span>
+      <span class="v"><em>0원</em> · 출시까지 전 과정 무료</span>
+    </div>
+    <div class="hero-meta">
+      <span>받는 분 · <b>임패커스 명시연 님</b></span>
+      <span>드림 · <b>어니스트패밀리</b></span>
+      <span>작성 · <b>2026. 10. 10.</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1. 이해 -->
+  <section>
+    <div class="wrap">
+      <div class="kicker">첫째, 저희가 이해한 이음온아이</div>
+      <h2 class="title">보내주신 42개 화면을, 처음부터 끝까지 읽었습니다</h2>
+      <p class="sub">기획안과 전달 주신 글을 한 줄도 건너뛰지 않고 읽었습니다. 읽으면서 든 생각은 하나였습니다 —
+        이건 ‘사이트’가 아니라, <b>누군가의 상실을 곁에서 지켜주는 공간</b>이라는 것. 이름 그대로,
+        떠난 ‘우리 아이’와의 인연을 따뜻하게 이어주는 자리라고 이해했습니다.</p>
+
+      <ul class="read-list">
+        <li><div class="h"><span class="ic">🌙</span>세 갈래의 길</div>
+          <div class="d">기억과 추모 · 함께 애도하기 · 회복과 배움 — 슬픔의 단계를 억지로 재촉하지 않고, 지금 서 있는 자리에서 다음 한 걸음을 고를 수 있게 합니다.</div></li>
+        <li><div class="h"><span class="ic">🧭</span>마음으로 들어오는 입구</div>
+          <div class="d">처음 온 사람이 ‘지금 내 마음’을 고르면, 그 마음에 맞는 위로 문장 · 돌봄 질문 · 추천 이야기 · 프로그램으로 안내합니다. 가장 섬세해야 할 화면이라고 봤습니다.</div></li>
+        <li><div class="h"><span class="ic">⭐</span>우리의 기억, 그리고 기억의 별</div>
+          <div class="d">떠난 아이를 여러 장의 사진과 함께 기록하고(공개·비공개 선택), ‘함께한 지 4,380일’처럼 시간을 세어 줍니다. 공개한 기억은 ‘기억의 별’에 모여 서로를 위로합니다.</div></li>
+        <li><div class="h"><span class="ic">🤝</span>함께, 그리고 조심스럽게</div>
+          <div class="d">같은 아픔을 나누는 공유 게시판(공감·댓글·신고)과, 작성자와 상담사만 볼 수 있는 1:1 상담 게시판을 분리했습니다. 공개와 비공개의 경계가 중요한 서비스입니다.</div></li>
+        <li><div class="h"><span class="ic">🕯️</span>프로그램과 이야기</div>
+          <div class="d">추모 · 사진치유 · 상담 · 모임/교육/워크숍을 안내하고 사이트 안에서 신청까지. 펫로스 이야기와 소식 콘텐츠가 사람들을 머물게 합니다.</div></li>
+        <li><div class="h"><span class="ic">⚙️</span>운영자와 상담사를 위한 뒤편</div>
+          <div class="d">관리 13화면 · 상담사 권한 분리 · 신청자 엑셀 내려받기 · 문의 메일 답변 · 기억 공개 관리까지. 운영이 편해야 서비스가 오래갑니다.</div></li>
+      </ul>
+
+      <div class="factbar">
+        <div class="fact"><div class="n">42</div><div class="l">전체 화면 (사이트 29 · 관리 13)</div></div>
+        <div class="fact"><div class="n">PC·모바일</div><div class="l">태블릿까지 반응형</div></div>
+        <div class="fact"><div class="n">~6주</div><div class="l">10월 하순 착수 → 11월 말 오픈</div></div>
+        <div class="fact"><div class="n">0원</div><div class="l">출시까지 제작비</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 차별점 -->
+  <section>
+    <div class="wrap">
+      <div class="kicker">둘째, 왜 어니스트패밀리인가</div>
+      <h2 class="title">‘맡기면 잘해주겠구나’를, 말이 아니라 구조로 보여드립니다</h2>
+      <p class="sub">제작사를 고르실 때 가장 중요한 건 비용과 신뢰라고 생각합니다. 저희는 그 두 가지를
+        이렇게 다르게 가져갑니다.</p>
+
+      <div class="cards">
+        <div class="card highlight">
+          <div class="num">01</div>
+          <h3>제작비 0원 — 출시까지</h3>
+          <p>기획 · 디자인(Figma 원본) · 개발 · 오픈까지 전 과정을 제작비 없이 진행합니다. 같은 범위를 시장에 맡기면 보통 <b>1,500만~2,500만원</b>입니다. 처음부터 큰돈을 들이지 않고 서비스를 세상에 내보낼 수 있습니다.</p>
+        </div>
+        <div class="card warm">
+          <div class="num">02</div>
+          <h3>슬픔을 다루는 화면은, 다르게 만듭니다</h3>
+          <p>저희 팀에도 말티푸 ‘호두’가 있습니다. 그래서 압니다 — 이건 쇼핑몰이 아니라는 걸. 버튼 문구 하나, 색의 온도, ‘공개할까요?’를 묻는 방식까지, 펫로스 서비스에 맞는 결을 챙깁니다.</p>
+        </div>
+        <div class="card">
+          <div class="num">03</div>
+          <h3>11월 말 오픈이 가능한 이유</h3>
+          <p>저희는 자체 AI 개발 체계로 기획·디자인·개발을 압축해 왔습니다. 그래서 빠듯한 6주 일정도 현실적이고, 출시 뒤 고칠 것이 보일 때도 빠르게 돌려드립니다.</p>
+        </div>
+        <div class="card">
+          <div class="num">04</div>
+          <h3>만들고 끝이 아니라, 함께 키웁니다</h3>
+          <p>오픈은 시작입니다. 이번에 제외하신 결제·소셜 로그인·AI·앱·알림은 ‘안 하는 것’이 아니라 출시 뒤 함께 밟을 로드맵으로 봅니다. 월 구독 안에서 우선순위대로.</p>
+        </div>
+        <div class="card">
+          <div class="num">05</div>
+          <h3>언제든 가져가실 수 있게</h3>
+          <p>편집 가능한 Figma 원본, 데이터 저장 구조 문서, 관리자 사용 안내까지 인수인계해 드립니다. 특정 업체에 묶이지 않습니다. 이건 신뢰의 문제라고 생각합니다.</p>
+        </div>
+        <div class="card">
+          <div class="num">06</div>
+          <h3>‘찾아오게’ 하는 것까지</h3>
+          <p>저희는 만드는 일만 하지 않습니다. 검색에 노출되고, 필요한 사람에게 가닿게 하는 부분(콘텐츠·SEO)도 함께 고민합니다. 좋은 서비스가 묻히지 않도록.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 범위 -->
+  <section>
+    <div class="wrap">
+      <div class="kicker">셋째, 무엇을 어떻게 만드나</div>
+      <h2 class="title">요청하신 포함 범위, 그대로 책임집니다</h2>
+      <p class="sub tight">보내주신 6개 작업 범위를 하나도 덜어내지 않고 가져갑니다. 42개 화면 전부를 설계·디자인·개발합니다.</p>
+
+      <div class="steps">
+        <div class="step"><div class="idx">1</div><div><div class="b">착수와 설계</div><div class="t">메뉴 구조·범위 확정, 회원·콘텐츠·프로그램·기억 기록 저장 구조 설계</div></div></div>
+        <div class="step"><div class="idx">2</div><div><div class="b">UI 디자인 (Figma 원본 납품)</div><div class="t">색·글꼴·버튼·카드 공통 기준 수립, 주요 화면 PC·모바일 디자인, 편집 가능한 원본 전달</div></div></div>
+        <div class="step"><div class="idx">3</div><div><div class="b">사이트 화면 29개</div><div class="t">홈·마음 길 안내부터 우리의 기억·기억의 별·게시판·상담·회원까지</div></div></div>
+        <div class="step"><div class="idx">4</div><div><div class="b">관리 화면 13개</div><div class="t">콘텐츠·프로그램·신청자(엑셀)·회원·게시판·상담 답변·문의 메일·설정</div></div></div>
+        <div class="step"><div class="idx">5</div><div><div class="b">외부 연결과 공통</div><div class="t">메일 발송 연동, 이미지 저장·리사이즈, 서버·도메인 구성, 보안 접속(HTTPS)</div></div></div>
+        <div class="step"><div class="idx">6</div><div><div class="b">테스트와 오픈</div><div class="t">PC·모바일 통합 테스트·수정, 운영 서버 오픈, 저장 구조 문서·관리자 안내 인수인계</div></div></div>
+      </div>
+
+      <div class="screens">
+        <div class="box">
+          <h4>사이트 화면 <span>29</span></h4>
+          <ol>
+            <li>공통 헤더·푸터</li><li>홈</li><li>마음 길 안내</li><li>영역 소개</li>
+            <li>서비스 소개 상세</li><li>프로그램 목록</li><li>프로그램 상세</li><li>프로그램 신청</li>
+            <li>이야기 목록 · 상세</li><li>공지사항</li><li>기억의 별</li>
+            <li>공유 게시판 (목록·보기·쓰기)</li><li>상담 게시판 (목록·쓰기·답변 보기)</li>
+            <li>문의하기 · 오시는 길 · 약관</li><li>회원가입 · 로그인 · 비밀번호 재설정</li>
+            <li>MY · 신청 내역 · 관심 목록</li><li>우리의 기억 (목록·기록·보기)</li><li>공개 기억 보기</li>
+          </ol>
+        </div>
+        <div class="box">
+          <h4>관리 화면 <span>13</span></h4>
+          <ol>
+            <li>관리 로그인 · 할 일 요약</li><li>메인/마음 길 안내 관리</li>
+            <li>콘텐츠 목록 · 작성</li><li>프로그램 관리</li><li>신청자 관리 (엑셀)</li>
+            <li>회원 관리</li><li>공유 게시판 관리 (신고 처리)</li><li>상담 답변 (상담사 권한)</li>
+            <li>기억 공개 관리</li><li>문의 관리 (메일 발송)</li><li>이미지 보관함</li>
+            <li>사이트 설정 · 계정 관리</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 일정 -->
+  <section>
+    <div class="wrap">
+      <div class="kicker">넷째, 일정</div>
+      <h2 class="title">10월 하순 착수 → 11월 말 오픈</h2>
+      <p class="sub">희망하신 일정에 맞춰 약 6주로 설계했습니다. 매주 진행 상황을 바로 보이는 링크로 공유하고,
+        우선순위는 함께 조정합니다.</p>
+
+      <ul class="tl">
+        <li><div class="dot"></div><div class="w">1주차 · 10월 하순</div><div class="h">착수 · 설계</div>
+          <div class="d">메뉴/범위 확정, 저장 구조 설계, 디자인 기준(색·글꼴·컴포넌트) 수립</div></li>
+        <li><div class="dot"></div><div class="w">2–3주차</div><div class="h">UI 디자인 · 핵심 개발 착수</div>
+          <div class="d">주요 화면 PC·모바일 디자인(Figma), 회원·콘텐츠·프로그램·우리의 기억 개발 시작</div></li>
+        <li><div class="dot"></div><div class="w">3–4주차</div><div class="h">사이트 · 관리 화면 개발</div>
+          <div class="d">사이트 29화면과 관리 13화면 본 개발, 마음 길 안내·기억의 별 연결</div></li>
+        <li><div class="dot"></div><div class="w">5주차</div><div class="h">게시판 · 상담 · 외부 연동 마무리</div>
+          <div class="d">공유/상담 게시판, 메일 발송, 이미지 보관함, 설정·권한, 전체 통합</div></li>
+        <li class="open"><div class="dot"></div><div class="w">6주차 · 11월 말</div><div class="h">통합 테스트 → 오픈 → 인수인계</div>
+          <div class="d">PC·모바일 통합 테스트·수정, 운영 서버 오픈, 문서·관리자 안내 전달</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. 비용 -->
+  <section>
+    <div class="wrap">
+      <div class="kicker">다섯째, 비용</div>
+      <h2 class="title">숨기지 않고, 투명하게 말씀드립니다</h2>
+      <p class="sub tight">요청하신 대로 공급가액(VAT 별도) 기준으로 정리했습니다.</p>
+
+      <table>
+        <tr><th>구분</th><th>내용</th><th>공급가액 (VAT 별도)</th></tr>
+        <tr><td>일반 시장 맞춤 제작</td><td>42화면 · 디자인 포함 · 일시 제작</td><td>1,500만 ~ 2,500만원</td></tr>
+        <tr class="cost-hi"><td>이음온아이 제안<br><span style="font-weight:400;color:var(--ink-faint);font-size:13px">기획·디자인·개발·오픈</span></td>
+          <td class="big">전 과정 제작 · 약 6주</td><td class="big zero">0원</td></tr>
+        <tr><td>출시 후 — 성장 파트너 구독<br><span style="font-weight:400;color:var(--ink-faint);font-size:13px">선택 · 운영 데이터 보며 함께 확정</span></td>
+          <td>운영 유지보수 + 매달 개선 작업 + 로드맵 기능(결제·소셜·AI·앱·알림 등)</td>
+          <td>보통 월 20~40만원 선<br><span style="font-weight:400;color:var(--ink-faint);font-size:13px">규모 보고 함께 확정</span></td></tr>
+      </table>
+      <p class="note">※ 큰 제작비를 먼저 치르는 대신, 서비스가 세상에 자리를 잡아가며 함께 가는 구조입니다.
+        출시까지는 비용 부담 없이, 그 뒤의 운영·성장은 부담 없는 선에서 함께 정합니다. 숨은 비용은 없습니다.</p>
+    </div>
+  </section>
+
+  <!-- 6. 로드맵 -->
+  <section>
+    <div class="wrap">
+      <div class="kicker rose">여섯째, 이번 범위에서 제외하신 것들</div>
+      <h2 class="title">‘안 하는 것’이 아니라, ‘다음에 함께’입니다</h2>
+      <p class="sub tight">MVP를 가볍게 가져가신 판단에 공감합니다. 다만 각각이 언제 필요해질지는 미리 그려 두었습니다.</p>
+      <div class="road">
+        <div class="r"><span class="x">제외</span><span><b>결제</b> — 프로그램 유료 신청·후원을 받기 시작할 때</span></div>
+        <div class="r"><span class="x">제외</span><span><b>소셜 로그인</b> — 가입 문턱을 더 낮추고 싶을 때</span></div>
+        <div class="r"><span class="x">제외</span><span><b>AI</b> — 마음 상태 추천·위로 문구를 거들게 하고 싶을 때</span></div>
+        <div class="r"><span class="x">제외</span><span><b>모바일 앱</b> — 반복 방문·추모일 기억이 필요해질 때</span></div>
+        <div class="r"><span class="x">제외</span><span><b>실시간 채팅</b> — 상담을 실시간으로 넓힐 때</span></div>
+        <div class="r"><span class="x">제외</span><span><b>문자·앱 알림</b> — 신청 확정·추모일 알림을 보낼 때</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 약속 -->
+  <section>
+    <div class="wrap">
+      <div class="kicker">일곱째, 함께 지킬 약속</div>
+      <h2 class="title">과장하지 않고, 끝까지 챙기겠습니다</h2>
+      <ul class="promise">
+        <li><span class="c">✓</span><span>매주 진행 상황을 <b>바로 열어보실 수 있는 링크</b>로 공유합니다. 말로만 “잘 되고 있어요”라고 하지 않습니다.</span></li>
+        <li><span class="c">✓</span><span>운영에 반영하기 전 <b>확인을 받고</b>, 되돌릴 수 있게 작업합니다.</span></li>
+        <li><span class="c">✓</span><span>Figma 원본 · 저장 구조 문서 · 관리자 안내를 <b>인수인계</b>해 드립니다.</span></li>
+        <li><span class="c">✓</span><span>개인정보 수집 동의, HTTPS 보안 접속 등 <b>기본은 기본대로</b> 지킵니다.</span></li>
+        <li><span class="c">✓</span><span>할 수 있는 것과 아직 아닌 것을 <b>분명히</b> 말씀드립니다. (이번 제외 항목도 그래서 명시했습니다.)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section style="border-top:none">
+    <div class="wrap">
+      <div class="closing">
+        <h2>‘당신은 혼자가 아니에요’ — 저희가 만드는 방식에서도요</h2>
+        <p>이음온아이가 사람들에게 건네려는 그 감각을, 함께 일하는 과정에서 먼저 느끼시길 바랍니다.
+          15–30분 통화나 미팅으로 메뉴와 우선순위를 함께 확정하면, 바로 착수하겠습니다.</p>
+        <p>받으신 메일에 편하게 회신 주시면, 다음 단계를 저희가 잡아 두겠습니다.</p>
+        <a class="cta" href="mailto:">제안 이어가기 · 회신하기</a>
+        <div class="hodu">— 말티푸 ‘호두’와 함께 사는 어니스트패밀리 드림 🐾</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="b">어니스트패밀리 · honest-family.com</div>
+  <div>본 제안서는 임패커스 명시연 님께 드리는 이음온아이 통합케어 플랫폼 제작 제안입니다. · 2026. 10. 10.</div>
+</footer>
+
+</body>
+</html>
